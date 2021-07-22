@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		12F3838C26A99DF700246B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3838B26A99DF700246B3B /* AppDelegate.swift */; };
 		12F3838E26A99DF700246B3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3838D26A99DF700246B3B /* SceneDelegate.swift */; };
-		12F3839026A99DF700246B3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3838F26A99DF700246B3B /* ViewController.swift */; };
-		12F3839326A99DF700246B3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F3839126A99DF700246B3B /* Main.storyboard */; };
+		12F3839026A99DF700246B3B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3838F26A99DF700246B3B /* AuthViewController.swift */; };
 		12F3839526A99DF800246B3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 12F3839426A99DF800246B3B /* Assets.xcassets */; };
 		12F3839826A99DF800246B3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12F3839626A99DF800246B3B /* LaunchScreen.storyboard */; };
+		12F383A326A9A6F200246B3B /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383A226A9A6F200246B3B /* UIButton+Ext.swift */; };
+		12F383A626A9A98D00246B3B /* UIFont+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383A526A9A98D00246B3B /* UIFont+Ext.swift */; };
+		12F383A926A9AF0D00246B3B /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383A826A9AF0D00246B3B /* UILabel+Ext.swift */; };
+		12F383AC26A9B23000246B3B /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383AB26A9B23000246B3B /* UIImage+Ext.swift */; };
+		12F383B426A9B93600246B3B /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383B326A9B93600246B3B /* ButtonFormView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		12F3838826A99DF700246B3B /* PetProject-IChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PetProject-IChat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F3838B26A99DF700246B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12F3838D26A99DF700246B3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		12F3838F26A99DF700246B3B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		12F3839226A99DF700246B3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		12F3838F26A99DF700246B3B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		12F3839426A99DF800246B3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		12F3839726A99DF800246B3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		12F3839926A99DF800246B3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		12F383A226A9A6F200246B3B /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		12F383A526A9A98D00246B3B /* UIFont+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ext.swift"; sourceTree = "<group>"; };
+		12F383A826A9AF0D00246B3B /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		12F383AB26A9B23000246B3B /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		12F383B326A9B93600246B3B /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,33 @@
 			children = (
 				12F3838B26A99DF700246B3B /* AppDelegate.swift */,
 				12F3838D26A99DF700246B3B /* SceneDelegate.swift */,
-				12F3838F26A99DF700246B3B /* ViewController.swift */,
-				12F3839126A99DF700246B3B /* Main.storyboard */,
+				12F383B126A9B45000246B3B /* Extensions */,
+				12F3838F26A99DF700246B3B /* AuthViewController.swift */,
+				12F383B326A9B93600246B3B /* ButtonFormView.swift */,
 				12F3839426A99DF800246B3B /* Assets.xcassets */,
 				12F3839626A99DF800246B3B /* LaunchScreen.storyboard */,
 				12F3839926A99DF800246B3B /* Info.plist */,
 			);
 			path = "PetProject-IChat";
+			sourceTree = "<group>";
+		};
+		12F383AF26A9B42600246B3B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				12F383A226A9A6F200246B3B /* UIButton+Ext.swift */,
+				12F383A526A9A98D00246B3B /* UIFont+Ext.swift */,
+				12F383AB26A9B23000246B3B /* UIImage+Ext.swift */,
+				12F383A826A9AF0D00246B3B /* UILabel+Ext.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		12F383B126A9B45000246B3B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				12F383AF26A9B42600246B3B /* UIKit */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +154,6 @@
 			files = (
 				12F3839826A99DF800246B3B /* LaunchScreen.storyboard in Resources */,
 				12F3839526A99DF800246B3B /* Assets.xcassets in Resources */,
-				12F3839326A99DF700246B3B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +164,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12F3839026A99DF700246B3B /* ViewController.swift in Sources */,
+				12F383AC26A9B23000246B3B /* UIImage+Ext.swift in Sources */,
+				12F3839026A99DF700246B3B /* AuthViewController.swift in Sources */,
+				12F383B426A9B93600246B3B /* ButtonFormView.swift in Sources */,
 				12F3838C26A99DF700246B3B /* AppDelegate.swift in Sources */,
 				12F3838E26A99DF700246B3B /* SceneDelegate.swift in Sources */,
+				12F383A326A9A6F200246B3B /* UIButton+Ext.swift in Sources */,
+				12F383A926A9AF0D00246B3B /* UILabel+Ext.swift in Sources */,
+				12F383A626A9A98D00246B3B /* UIFont+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		12F3839126A99DF700246B3B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				12F3839226A99DF700246B3B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		12F3839626A99DF800246B3B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
