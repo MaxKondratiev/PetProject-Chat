@@ -13,9 +13,17 @@ extension UIFont {
     static func avenirFont() -> UIFont? {
         return UIFont.init(name: "avenir", size: 20)
     }
+    static func avenirFont30() -> UIFont? {
+        return UIFont.init(name: "avenir", size: 30)
+    }
     static func avenirFont16() -> UIFont? {
         return UIFont.init(name: "avenir", size: 16)
     }
+    
+    static func helvetic() -> UIFont? {
+        return UIFont.init(name: "Helvetic", size: 16)
+    }
+    
     
     
 }
