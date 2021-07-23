@@ -24,6 +24,12 @@
 		12F383C626A9F66900246B3B /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383C526A9F66900246B3B /* SetupProfileViewController.swift */; };
 		12F383C926A9FA5B00246B3B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383C826A9FA5B00246B3B /* AddPhotoView.swift */; };
 		12F383CD26AA833E00246B3B /* SegmentedControl+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383CC26AA833E00246B3B /* SegmentedControl+Ext.swift */; };
+		12F383D226AA871700246B3B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383D126AA871700246B3B /* ListViewController.swift */; };
+		12F383D526AA873C00246B3B /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383D426AA873C00246B3B /* UsersViewController.swift */; };
+		12F383D826AA877100246B3B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383D726AA877100246B3B /* MainTabBarController.swift */; };
+		12F383E326AAB09C00246B3B /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 12F383E126AAB09B00246B3B /* activeChats.json */; };
+		12F383E426AAB09C00246B3B /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 12F383E226AAB09C00246B3B /* waitingChats.json */; };
+		12F383E726AAB0B600246B3B /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383E626AAB0B600246B3B /* Bundle-Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +52,12 @@
 		12F383C526A9F66900246B3B /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		12F383C826A9FA5B00246B3B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		12F383CC26AA833E00246B3B /* SegmentedControl+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl+Ext.swift"; sourceTree = "<group>"; };
+		12F383D126AA871700246B3B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		12F383D426AA873C00246B3B /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		12F383D726AA877100246B3B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		12F383E126AAB09B00246B3B /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
+		12F383E226AAB09C00246B3B /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
+		12F383E626AAB0B600246B3B /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +92,9 @@
 			children = (
 				12F3838B26A99DF700246B3B /* AppDelegate.swift */,
 				12F3838D26A99DF700246B3B /* SceneDelegate.swift */,
+				12F383D026AA86FB00246B3B /* Controllers */,
 				12F383B126A9B45000246B3B /* Extensions */,
-				12F3838F26A99DF700246B3B /* AuthViewController.swift */,
-				12F383B626A9C88500246B3B /* SignUpViewController.swift */,
-				12F383C226A9F45E00246B3B /* LoginViewController.swift */,
-				12F383C526A9F66900246B3B /* SetupProfileViewController.swift */,
+				12F383CF26AA86CD00246B3B /* Authorization Screens */,
 				12F3839426A99DF800246B3B /* Assets.xcassets */,
 				12F3839626A99DF800246B3B /* LaunchScreen.storyboard */,
 				12F3839926A99DF800246B3B /* Info.plist */,
@@ -101,6 +111,8 @@
 				12F383A826A9AF0D00246B3B /* UILabel+Ext.swift */,
 				12F383BE26A9CFEC00246B3B /* StackView + Ext.swift */,
 				12F383CC26AA833E00246B3B /* SegmentedControl+Ext.swift */,
+				12F383E126AAB09B00246B3B /* activeChats.json */,
+				12F383E226AAB09C00246B3B /* waitingChats.json */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -111,9 +123,31 @@
 				12F383B326A9B93600246B3B /* ButtonFormView.swift */,
 				12F383BA26A9CD3800246B3B /* OneLineTextField.swift */,
 				12F383C826A9FA5B00246B3B /* AddPhotoView.swift */,
+				12F383E626AAB0B600246B3B /* Bundle-Decodable.swift */,
 				12F383AF26A9B42600246B3B /* UIKit */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		12F383CF26AA86CD00246B3B /* Authorization Screens */ = {
+			isa = PBXGroup;
+			children = (
+				12F3838F26A99DF700246B3B /* AuthViewController.swift */,
+				12F383B626A9C88500246B3B /* SignUpViewController.swift */,
+				12F383C226A9F45E00246B3B /* LoginViewController.swift */,
+				12F383C526A9F66900246B3B /* SetupProfileViewController.swift */,
+			);
+			path = "Authorization Screens";
+			sourceTree = "<group>";
+		};
+		12F383D026AA86FB00246B3B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				12F383D126AA871700246B3B /* ListViewController.swift */,
+				12F383D426AA873C00246B3B /* UsersViewController.swift */,
+				12F383D726AA877100246B3B /* MainTabBarController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +208,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				12F3839826A99DF800246B3B /* LaunchScreen.storyboard in Resources */,
+				12F383E326AAB09C00246B3B /* activeChats.json in Resources */,
 				12F3839526A99DF800246B3B /* Assets.xcassets in Resources */,
+				12F383E426AAB09C00246B3B /* waitingChats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F383D526AA873C00246B3B /* UsersViewController.swift in Sources */,
 				12F383C326A9F45E00246B3B /* LoginViewController.swift in Sources */,
+				12F383D826AA877100246B3B /* MainTabBarController.swift in Sources */,
 				12F383AC26A9B23000246B3B /* UIImage+Ext.swift in Sources */,
 				12F3839026A99DF700246B3B /* AuthViewController.swift in Sources */,
 				12F383B426A9B93600246B3B /* ButtonFormView.swift in Sources */,
@@ -199,7 +237,9 @@
 				12F383A926A9AF0D00246B3B /* UILabel+Ext.swift in Sources */,
 				12F383B726A9C88500246B3B /* SignUpViewController.swift in Sources */,
 				12F383A626A9A98D00246B3B /* UIFont+Ext.swift in Sources */,
+				12F383D226AA871700246B3B /* ListViewController.swift in Sources */,
 				12F383BF26A9CFEC00246B3B /* StackView + Ext.swift in Sources */,
+				12F383E726AAB0B600246B3B /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
