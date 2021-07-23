@@ -30,6 +30,10 @@
 		12F383E326AAB09C00246B3B /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 12F383E126AAB09B00246B3B /* activeChats.json */; };
 		12F383E426AAB09C00246B3B /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 12F383E226AAB09C00246B3B /* waitingChats.json */; };
 		12F383E726AAB0B600246B3B /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383E626AAB0B600246B3B /* Bundle-Decodable.swift */; };
+		12F383EC26AAC6AA00246B3B /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383EB26AAC6AA00246B3B /* ActiveChatCell.swift */; };
+		12F383EF26AAD21C00246B3B /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383EE26AAD21C00246B3B /* WaitingChatCell.swift */; };
+		12F383F326AAE89100246B3B /* SelfConfiguringCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383F226AAE89100246B3B /* SelfConfiguringCell.swift */; };
+		12F383F726AAF92700246B3B /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383F626AAF92700246B3B /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		12F383E126AAB09B00246B3B /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 		12F383E226AAB09C00246B3B /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
 		12F383E626AAB0B600246B3B /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		12F383EB26AAC6AA00246B3B /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
+		12F383EE26AAD21C00246B3B /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
+		12F383F226AAE89100246B3B /* SelfConfiguringCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfConfiguringCell.swift; sourceTree = "<group>"; };
+		12F383F626AAF92700246B3B /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,7 @@
 				12F3838D26A99DF700246B3B /* SceneDelegate.swift */,
 				12F383D026AA86FB00246B3B /* Controllers */,
 				12F383B126A9B45000246B3B /* Extensions */,
+				12F383F126AAE86F00246B3B /* Protocols */,
 				12F383CF26AA86CD00246B3B /* Authorization Screens */,
 				12F3839426A99DF800246B3B /* Assets.xcassets */,
 				12F3839626A99DF800246B3B /* LaunchScreen.storyboard */,
@@ -143,11 +152,30 @@
 		12F383D026AA86FB00246B3B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				12F383EA26AAC67E00246B3B /* Cell */,
 				12F383D126AA871700246B3B /* ListViewController.swift */,
+				12F383F626AAF92700246B3B /* SectionHeader.swift */,
 				12F383D426AA873C00246B3B /* UsersViewController.swift */,
 				12F383D726AA877100246B3B /* MainTabBarController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		12F383EA26AAC67E00246B3B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				12F383EB26AAC6AA00246B3B /* ActiveChatCell.swift */,
+				12F383EE26AAD21C00246B3B /* WaitingChatCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		12F383F126AAE86F00246B3B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				12F383F226AAE89100246B3B /* SelfConfiguringCell.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,12 +252,16 @@
 				12F383D526AA873C00246B3B /* UsersViewController.swift in Sources */,
 				12F383C326A9F45E00246B3B /* LoginViewController.swift in Sources */,
 				12F383D826AA877100246B3B /* MainTabBarController.swift in Sources */,
+				12F383F326AAE89100246B3B /* SelfConfiguringCell.swift in Sources */,
+				12F383F726AAF92700246B3B /* SectionHeader.swift in Sources */,
+				12F383EC26AAC6AA00246B3B /* ActiveChatCell.swift in Sources */,
 				12F383AC26A9B23000246B3B /* UIImage+Ext.swift in Sources */,
 				12F3839026A99DF700246B3B /* AuthViewController.swift in Sources */,
 				12F383B426A9B93600246B3B /* ButtonFormView.swift in Sources */,
 				12F3838C26A99DF700246B3B /* AppDelegate.swift in Sources */,
 				12F3838E26A99DF700246B3B /* SceneDelegate.swift in Sources */,
 				12F383A326A9A6F200246B3B /* UIButton+Ext.swift in Sources */,
+				12F383EF26AAD21C00246B3B /* WaitingChatCell.swift in Sources */,
 				12F383BB26A9CD3800246B3B /* OneLineTextField.swift in Sources */,
 				12F383CD26AA833E00246B3B /* SegmentedControl+Ext.swift in Sources */,
 				12F383C626A9F66900246B3B /* SetupProfileViewController.swift in Sources */,

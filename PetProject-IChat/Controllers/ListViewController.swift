@@ -29,6 +29,15 @@ class ListViewController: UIViewController {
     
     enum Section: Int, CaseIterable {
         case   waitingChats,activeChats
+        
+        func description() -> String {
+            switch self {
+            case .waitingChats:
+                return "Waiting chats"
+            case .activeChats:
+                return "Active chats"
+            }
+        }
     }
     
     
@@ -43,11 +52,12 @@ class ListViewController: UIViewController {
     }
 
     func configureSearchBar(){
+       
         let searchC = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchC
-        searchC.obscuresBackgroundDuringPresentation = false
-        searchC.hidesNavigationBarDuringPresentation = false
         searchC.searchBar.delegate = self
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func configureCollectionView(){
@@ -55,8 +65,14 @@ class ListViewController: UIViewController {
         colView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         colView.backgroundColor = .systemBackground
         view.addSubview(colView)
-        colView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
-        colView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid2")
+        
+        colView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuseId )
+        
+        colView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuseId )
+        
+        colView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reuseId)
+        
+        
     }
     
     private func createDataSource() {
@@ -67,16 +83,25 @@ class ListViewController: UIViewController {
             }
             switch section {
             case .activeChats:
-                let cell = collView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-                cell.backgroundColor = .gray
-                return cell
+                return self.configure(cellType: ActiveChatCell.self, with: chat, for: indexPath)
+                
             case .waitingChats:
-                let cell = collView.dequeueReusableCell(withReuseIdentifier: "cellid2", for: indexPath)
-                cell.backgroundColor = .red
-                return cell
+                return self.configure(cellType: WaitingChatCell.self, with: chat, for: indexPath)
             }
         })
+        //
+        dataSource?.supplementaryViewProvider = {
+            collectionView, kind , indexPath in
+            guard  let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reuseId, for: indexPath) as? SectionHeader else {
+                fatalError("Cannot create new Section Header")
+            }
+            guard let section = Section(rawValue: indexPath.section) else {
+                fatalError("ssdfsd")}
+            sectionHeader.configure(text: section.description(), font: .laoSangamMn20() , textColor: .systemGray)
+                return sectionHeader
+        }
     }
+    
     private func reloadData() {
         var snapshot = NSDiffableDataSourceSnapshot<Section, Mchat>()
         snapshot.appendSections([.waitingChats, .activeChats])
@@ -100,6 +125,10 @@ class ListViewController: UIViewController {
                 return self.createWaitingChats()
             }
         }
+        
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 20
+        layout.configuration = config
         return layout
     }
     
@@ -109,16 +138,28 @@ class ListViewController: UIViewController {
         
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let groupsize = NSCollectionLayoutSize(widthDimension: .absolute(88), heightDimension: .absolute(88))
+        let groupsize = NSCollectionLayoutSize(widthDimension: .absolute(100), heightDimension: .absolute(100))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupsize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 20
         section.orthogonalScrollingBehavior = .continuous
         section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 20, bottom: 0, trailing: 20)
-        
+        //Хедеры
+         let sectionHeader = createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
+         
         return section
     }
+    //---Хедеры
+    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem{
+        
+        let headerLayoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(1))
+        
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerLayoutSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
+        return sectionHeader
+    }
+    //----
     
     func createActiveChats() -> NSCollectionLayoutSection {
         
@@ -134,10 +175,20 @@ class ListViewController: UIViewController {
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 8
         section.contentInsets = NSDirectionalEdgeInsets.init(top: 16, leading: 20, bottom: 8, trailing: 20)
-       
+        
+        let sectionHeader = createSectionHeader()
+       section.boundarySupplementaryItems = [sectionHeader]
         return section
     }
    
+    
+    private func configure<T: SelfConfigureCell>(cellType: T.Type, with value: Mchat, for indexPath: IndexPath) -> T {
+        guard let cell = colView.dequeueReusableCell(withReuseIdentifier: cellType.reuseId, for: indexPath) as? T else { fatalError("EROOR")}
+        
+        cell.configure(with: value)
+           return cell
+    }
+    
 }
 
 // MARK:  UICollectionViewDelegate & Data Sourse

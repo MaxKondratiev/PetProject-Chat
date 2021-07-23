@@ -14,7 +14,7 @@ class MainTabBarController: UITabBarController {
         let listVC = ListViewController()
         let usersVC = UsersViewController()
         
-        viewControllers = [generateNavController(rootVC: listVC, title: "Users", image: UIImage(systemName: "person.2.fill")!), generateNavController(rootVC: usersVC, title: "Chat", image: UIImage(systemName: "bubble.left.and.bubble.right")!)]
+        viewControllers = [generateNavController(rootVC: listVC, title: "Chat", image: UIImage(systemName: "bubble.left.and.bubble.right")!), generateNavController(rootVC: usersVC, title: "Users", image: UIImage(systemName: "person.2.fill")!)]
     }
     private func generateNavController(rootVC:UIViewController, title: String, image: UIImage) -> UIViewController {
         
