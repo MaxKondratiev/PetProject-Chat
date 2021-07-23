@@ -22,4 +22,16 @@ extension UIButton {
         self.layer.borderWidth  = 0.7
         
     }
+    
+    func customizeGoogleButton(){
+        let logo = UIImageView(image: #imageLiteral(resourceName: "glogo"), contendMode: .scaleAspectFit)
+        logo.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(logo)
+        NSLayoutConstraint.activate([
+            logo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            logo.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            logo.heightAnchor.constraint(equalToConstant: 30),
+            logo.widthAnchor.constraint(equalToConstant: 30)
+        ])
+    }
 }
