@@ -23,6 +23,7 @@ class SignUpViewController : UIViewController {
     let confirmTF = OneLineTextField(font: .avenirFont())
     let loginTF = OneLineTextField(font: .avenirFont())
     
+    weak var delegate: AuthNavigationDelegate?
     
     
     override func viewDidLoad() {
@@ -31,7 +32,33 @@ class SignUpViewController : UIViewController {
         loginBtn.setTitle("Login", for: .normal)
         loginBtn.setTitleColor(.red, for: .normal)
         setupConstraints()
+        
+        signupBtn.addTarget(self, action: #selector(signUpBtnTapped), for: .touchUpInside)
+        loginBtn.addTarget(self, action: #selector(loginBtnTapped), for: .touchUpInside)
     }
+    
+    @objc func signUpBtnTapped() {
+        
+        AuthService.shared.register(email: emailTF.text, password: passwordTF.text, confirm: passwordTF.text) { (result) in
+            switch result {
+            case .success(let user):
+                //self.showAlert(title: "Успешно", message: "You Registered")
+                self.showAlert(title: "Успешно", message: "You Registered") {
+                    self.present(SetupProfileViewController(), animated: true, completion: nil)
+                }
+                print(user.email ?? "")
+            case .failure(let error):
+                self.showAlert(title: "Error", message: error.localizedDescription)
+            }
+        }
+    }
+    
+    @objc func loginBtnTapped(){
+        dismiss(animated: true) {
+            self.delegate?.toLoginVC()
+        }
+    }
+    
 }
 // MARK:  Setup Constraints
 extension SignUpViewController {
@@ -90,5 +117,17 @@ struct SignUpControllerProvider: PreviewProvider {
 
         }
 
+    }
+}
+
+extension UIViewController{
+    func showAlert(title:String, message: String, completion:@escaping ()->Void = {}) {
+        let alertC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        //let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        let action = UIAlertAction(title: "Ok", style: .default) { (_) in
+            completion()
+        }
+        alertC.addAction(action)
+        present(alertC, animated: true, completion: nil)
     }
 }

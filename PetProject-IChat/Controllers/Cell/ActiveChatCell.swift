@@ -13,7 +13,7 @@ class ActiveChatCell: UICollectionViewCell, SelfConfigureCell {
     static var reuseId = "ActiveChatCel"
     
     let friendImageView = UIImageView()
-    let friendName = UILabel(text: "User name", font: .laoSangamMn20())
+    let friendName = UILabel(text: "User name", font: .laoSangamMN20())
     let lastMessage = UILabel(text: "How are you", font: .laoSangamMn18())
     
     
@@ -31,11 +31,15 @@ class ActiveChatCell: UICollectionViewCell, SelfConfigureCell {
         fatalError("init(coder:) has not been implemented")
     }
     //настраиваем ячейку  данными  из нашей модели json
-    func configure(with value: Mchat) {
-        friendName.text = value.username
-        friendImageView.image = UIImage(named: value.userImageString)
-        lastMessage.text = value.lastMessage
+    func configure<U>(with value: U) where U : Hashable  {
+        guard let chat: Mchat = value as? Mchat else { return }
+
+        friendName.text = chat.username
+        friendImageView.image = UIImage(named: chat.userImageString)
+        lastMessage.text = chat.lastMessage
     }
+
+ 
     
     private func configureConstraints () {
         friendImageView.translatesAutoresizingMaskIntoConstraints = false

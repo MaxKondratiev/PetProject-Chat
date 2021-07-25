@@ -22,6 +22,8 @@ class AuthViewController: UIViewController {
     let loginLabel = UILabel(text: "Already registred?")
 
     let logoImage = UIImageView(image: #imageLiteral(resourceName: "logo"), contendMode: .scaleAspectFit)
+    let signUpVC = SignUpViewController()
+    let loginVC = LoginViewController()
     
     
     override func viewDidLoad() {
@@ -29,10 +31,22 @@ class AuthViewController: UIViewController {
         view.backgroundColor = .white
         setupConstraints()
         googleBtn.customizeGoogleButton()
+        
+        loginVC.delegate    = self
+        signUpVC.delegate   = self
+        
+        emailBtn.addTarget(self, action: #selector(emailBtnTapped), for: .touchUpInside)
+        loginBtn.addTarget(self, action: #selector(loginBtnTapped), for: .touchUpInside)
+        
     }
     
+  @objc private func emailBtnTapped() {
+        present(signUpVC, animated: true, completion: nil)
+    }
     
-   
+@objc private func loginBtnTapped() {
+    present(loginVC, animated: true, completion: nil)
+      }
 }
 
 // MARK:  Setup Constraints
@@ -65,7 +79,17 @@ extension AuthViewController {
     }
 }
 
-
+extension AuthViewController: AuthNavigationDelegate {
+    func toLoginVC() {
+        present(loginVC, animated: true, completion: nil)
+    }
+    
+    func toSignUpVC() {
+        present(signUpVC, animated: true, completion: nil)
+    }
+    
+    
+}
 
 
 

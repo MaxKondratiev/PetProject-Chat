@@ -8,16 +8,17 @@
 import UIKit
 
 //Для датасоурс
-struct Mchat: Hashable, Decodable {
-    var username:String
-    var userImageString: String
-    var lastMessage:String
-    var id: Int
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
+
+//struct Mchat: Hashable, Decodable {
+//    var username:String
+//    var userImageString: String
+//    var lastMessage:String
+//    var id: Int
+//
+//    func hash(into hasher: inout Hasher) {
+//        hasher.combine(id)
+//    }
+//}
 
 
 class ListViewController: UIViewController {
@@ -97,7 +98,7 @@ class ListViewController: UIViewController {
             }
             guard let section = Section(rawValue: indexPath.section) else {
                 fatalError("ssdfsd")}
-            sectionHeader.configure(text: section.description(), font: .laoSangamMn20() , textColor: .systemGray)
+            sectionHeader.configure(text: section.description(), font: .laoSangamMN20() , textColor: .systemGray)
                 return sectionHeader
         }
     }

@@ -20,8 +20,9 @@ class WaitingChatCell: UICollectionViewCell ,SelfConfigureCell {
         self.clipsToBounds = true
         configureConstraints()
     }
-    func configure(with value: Mchat) {
-        friendImageView.image = UIImage(named: value.userImageString)
+    func configure<U>(with value: U) where U : Hashable {
+        guard let chat: Mchat = value as? Mchat else { return }
+        friendImageView.image = UIImage(named: chat.userImageString)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

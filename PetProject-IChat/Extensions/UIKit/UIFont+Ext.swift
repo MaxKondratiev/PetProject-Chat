@@ -24,7 +24,7 @@ extension UIFont {
         return UIFont.init(name: "Helvetic", size: 16)
     }
     
-    static func laoSangamMn20() -> UIFont? {
+    static func laoSangamMN20() -> UIFont? {
         return UIFont.init(name: "lao Sangam MN", size: 20)
     }
     
