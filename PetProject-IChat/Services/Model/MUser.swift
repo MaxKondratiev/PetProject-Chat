@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import  FirebaseFirestore
 
 struct MUser: Hashable, Decodable {
     var username: String
@@ -24,8 +25,32 @@ struct MUser: Hashable, Decodable {
         rep["decription"] = decription
         rep["sex"] = sex
         return rep
+        }
+    init(username: String,email: String,avatarStringURL: String,decription: String, sex: String,id: String) {
+        self.username = username
+        self.email = email
+        self.avatarStringURL = avatarStringURL
+        self.decription = decription
+        self.sex = sex
+        self.id = id
+    }
+    
+    init?(document: DocumentSnapshot) {
+        guard  let data = document.data() else {return nil}
+        guard let username = data["username"] as? String,
+              let email = data["email"] as? String,
+              let avatarStringURL = data["avatarStringURL"] as? String,
+              let id = data["uid"] as? String,
+              let decription = data["decription"] as? String,
+              let sex = data["sex"] as? String
+        else {return nil }
         
-        
+              self.username = username
+              self.email = email
+              self.avatarStringURL = avatarStringURL
+              self.decription = decription
+              self.sex = sex
+              self.id = id
     }
     
     func hash(into hasher: inout Hasher) {

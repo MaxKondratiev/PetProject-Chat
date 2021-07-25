@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseFirestore
 
 class FirestoreService {
@@ -20,6 +21,7 @@ class FirestoreService {
         return db.collection("users")
     }
     
+    //первый метод
     func saveProfileWith(id:String, email: String, username:String?, avatarImageString: String?,description: String?, sex: String?,
                          completion: @escaping (Result<MUser,Error>)-> Void) {
         
@@ -28,7 +30,7 @@ class FirestoreService {
             return
         }
         
-        var mUser = MUser(username: username!, avatarStringURL: "Doesnt exist yet", id: id, email: email, decription: description!, sex: sex!)
+        let mUser = MUser(username: username!, email: email, avatarStringURL: avatarImageString!, decription: description!, sex: sex!, id: id)
         self.usersRef.document(mUser.id).setData(mUser.repsentation) { (err) in
             if let err = err {
                 completion(.failure(err))
@@ -38,4 +40,22 @@ class FirestoreService {
         }
         
     }
+    
+    //второй
+    func getUserData(user: User, completion: @escaping (Result<MUser,Error>) -> Void){
+        
+        let docRef = usersRef.document(user.uid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                guard let muser = MUser(document: document) else {
+                    completion(.failure(UserError.cannotGetUserInfo))
+                    return
+                }
+                completion(.success(muser)) 
+            } else {
+                completion(.failure(UserError.cannotGetUserInfo))
+            }
+        }
+        
+                     }
 }

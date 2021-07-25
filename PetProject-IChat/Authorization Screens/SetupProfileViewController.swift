@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SetupProfileViewController: UIViewController {
     
@@ -24,13 +25,45 @@ let fullImageView = AddPhotoView()
     
     let goToChatsButton = UIButton(title: "Go to chats!", titleColor: .white, backgroundColor: .black, cornerRadius: 4)
     
+    private var currentUser: User
+    
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupConstraints()
         view.backgroundColor = .white
         
+        goToChatsButton.addTarget(self, action: #selector(chatsButtonTapped), for: .touchUpInside)
     }
-    
+    @objc private func chatsButtonTapped(){
+        FirestoreService.shared.saveProfileWith(id: currentUser.uid,
+                                                email: currentUser.email ?? "none",
+                                                username: fullNameTextField.text,
+                                                avatarImageString: "nil",
+                                                description: aboutMeTextField.text,
+                                                sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { (result) in
+            switch result {
+            
+            case .success(let muser):
+                self.showAlert(title: "Успешно", message: "Приятного общения") {
+                    self.present(MainTabBarController(), animated: true, completion: nil)
+                }
+                
+                print(muser)
+            case .failure(let error):
+                self.showAlert(title: "Ошибка", message: error.localizedDescription)
+            }
+        }
+    }
 
 }
 // MARK:  Setup Constraints
@@ -92,7 +125,7 @@ struct SetupProfileProvider: PreviewProvider {
         ContainerView().edgesIgnoringSafeArea(.all)
     }
     struct ContainerView: UIViewControllerRepresentable {
-         let vc = SetupProfileViewController()
+        let vc = SetupProfileViewController(currentUser: Auth.auth().currentUser!)
 
         func makeUIViewController(context: Context) -> some UIViewController {
             return vc

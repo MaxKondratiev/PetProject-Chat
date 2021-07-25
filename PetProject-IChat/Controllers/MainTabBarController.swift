@@ -12,9 +12,10 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let listVC = ListViewController()
-        let usersVC = UsersViewController()
+        let usersVC = PeopleViewController()
         
-        viewControllers = [generateNavController(rootVC: listVC, title: "Chat", image: UIImage(systemName: "bubble.left.and.bubble.right")!), generateNavController(rootVC: usersVC, title: "Users", image: UIImage(systemName: "person.2.fill")!)]
+        viewControllers = [
+            generateNavController(rootVC: usersVC, title: "Users", image: UIImage(systemName: "person.2.fill")!),generateNavController(rootVC: listVC, title: "Chat", image: UIImage(systemName: "bubble.left.and.bubble.right")!), ]
     }
     private func generateNavController(rootVC:UIViewController, title: String, image: UIImage) -> UIViewController {
         

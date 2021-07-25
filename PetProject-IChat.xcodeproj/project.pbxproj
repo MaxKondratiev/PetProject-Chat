@@ -25,7 +25,6 @@
 		12F383C926A9FA5B00246B3B /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383C826A9FA5B00246B3B /* AddPhotoView.swift */; };
 		12F383CD26AA833E00246B3B /* SegmentedControl+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383CC26AA833E00246B3B /* SegmentedControl+Ext.swift */; };
 		12F383D226AA871700246B3B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383D126AA871700246B3B /* ListViewController.swift */; };
-		12F383D526AA873C00246B3B /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383D426AA873C00246B3B /* UsersViewController.swift */; };
 		12F383D826AA877100246B3B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F383D726AA877100246B3B /* MainTabBarController.swift */; };
 		12F383E326AAB09C00246B3B /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 12F383E126AAB09B00246B3B /* activeChats.json */; };
 		12F383E426AAB09C00246B3B /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 12F383E226AAB09C00246B3B /* waitingChats.json */; };
@@ -77,7 +76,6 @@
 		12F383C826A9FA5B00246B3B /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		12F383CC26AA833E00246B3B /* SegmentedControl+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SegmentedControl+Ext.swift"; sourceTree = "<group>"; };
 		12F383D126AA871700246B3B /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		12F383D426AA873C00246B3B /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		12F383D726AA877100246B3B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		12F383E126AAB09B00246B3B /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 		12F383E226AAB09C00246B3B /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
@@ -220,7 +218,6 @@
 				12F3840226AB0D9D00246B3B /* PeopleViewController.swift */,
 				12F3841526AB137900246B3B /* ProfileViewController.swift */,
 				12F383F626AAF92700246B3B /* SectionHeader.swift */,
-				12F383D426AA873C00246B3B /* UsersViewController.swift */,
 				12F383D726AA877100246B3B /* MainTabBarController.swift */,
 			);
 			path = Controllers;
@@ -400,7 +397,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12F383D526AA873C00246B3B /* UsersViewController.swift in Sources */,
 				12F383C326A9F45E00246B3B /* LoginViewController.swift in Sources */,
 				12F3842326AB15FC00246B3B /* UIViewController+Ext.swift in Sources */,
 				12F3846426AD6D2600246B3B /* UserError.swift in Sources */,
