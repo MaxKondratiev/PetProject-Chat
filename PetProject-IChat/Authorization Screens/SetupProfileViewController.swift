@@ -43,19 +43,31 @@ let fullImageView = AddPhotoView()
         view.backgroundColor = .white
         
         goToChatsButton.addTarget(self, action: #selector(chatsButtonTapped), for: .touchUpInside)
+        fullImageView.plusButton.addTarget(self, action: #selector(plusBtntapped), for: .touchUpInside)
+    
+        
+    }
+    @objc func plusBtntapped() {
+        let imagePickerC = UIImagePickerController()
+        imagePickerC.delegate = self
+        imagePickerC.sourceType = .photoLibrary
+        
+        present(imagePickerC, animated: true, completion: nil)
     }
     @objc private func chatsButtonTapped(){
         FirestoreService.shared.saveProfileWith(id: currentUser.uid,
                                                 email: currentUser.email ?? "none",
                                                 username: fullNameTextField.text,
-                                                avatarImageString: "nil",
+                                                avatarImageString: fullImageView.circleImageView.image,
                                                 description: aboutMeTextField.text,
                                                 sex: sexSegmentedControl.titleForSegment(at: sexSegmentedControl.selectedSegmentIndex)) { (result) in
             switch result {
             
             case .success(let muser):
                 self.showAlert(title: "Успешно", message: "Приятного общения") {
-                    self.present(MainTabBarController(), animated: true, completion: nil)
+                    let mainTaBar = MainTabBarController(currentUser: muser)
+                    mainTaBar.modalPresentationStyle = .fullScreen
+                    self.present(mainTaBar, animated: true, completion: nil)
                 }
                 
                 print(muser)
@@ -137,4 +149,12 @@ struct SetupProfileProvider: PreviewProvider {
     }
 }
 
-
+extension SetupProfileViewController :UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage  else {
+            return
+        }
+        fullImageView.circleImageView.image = image
+        picker.dismiss(animated: true, completion: nil)
+    }
+}

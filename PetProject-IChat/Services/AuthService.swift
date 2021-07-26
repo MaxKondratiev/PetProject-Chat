@@ -8,7 +8,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-
+import GoogleSignIn
+import FirebaseStorage
 
 class AuthService {
     
@@ -21,15 +22,15 @@ class AuthService {
         //Checking validations by VALIDATORS.swift ---
         
         guard Validators().isFilled(email: email,password:password,confirm:confirm) else {
-            completion(.failure(AuthError.notFilled))
+            completion(.failure(AuthErs.notFilled))
             return
         }
         guard password!.lowercased() == confirm!.lowercased() else {
-            completion(.failure(AuthError.passwordsNotMatched))
+            completion(.failure(AuthErs.passwordsNotMatched))
             return
         }
         guard Validators().isValidEmail(email: email!) else {
-            completion (.failure(AuthError.invalidEmail))
+            completion (.failure(AuthErs.invalidEmail))
             return
         }
         // ---
@@ -45,7 +46,7 @@ class AuthService {
     func login(email:String? , password: String?, completion: @escaping (Result<User,Error>)-> Void) {
         guard  let email = email,
                let password = password else {
-            completion(.failure(AuthError.notFilled))
+            completion(.failure(AuthErs.notFilled))
             return }
         
         auth.signIn(withEmail: email, password: password) {
@@ -54,11 +55,28 @@ class AuthService {
             return completion(.failure(error!))
         }
             completion(.success(result.user))
-            
-    
     }
 }
 
+    func googleLogin(user: GIDGoogleUser!, error: Error!, completion: @escaping (Result<User,Error>)-> Void) {
+        if let error = error {
+            completion(.failure(error))
+            return
+        } else {
+            guard  let auth = user?.authentication,
+                   let idToken = auth.idToken
+                   else {return}
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: auth.accessToken)
+            Auth.auth().signIn(with: credential) { (result, error) in
+                guard let result = result else {
+                    completion(.failure(error!))
+                    return }
+                completion(.success(result.user))
+                
+            }
+        }
+    }
 
 
 

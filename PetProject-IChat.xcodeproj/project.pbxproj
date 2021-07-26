@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12ED848B26AEE57C00A30E67 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED848A26AEE57C00A30E67 /* StorageService.swift */; };
+		12ED848E26AF170F00A30E67 /* ListenerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ED848D26AF170F00A30E67 /* ListenerService.swift */; };
 		12F3838C26A99DF700246B3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3838B26A99DF700246B3B /* AppDelegate.swift */; };
 		12F3838E26A99DF700246B3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3838D26A99DF700246B3B /* SceneDelegate.swift */; };
 		12F3839026A99DF700246B3B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3838F26A99DF700246B3B /* AuthViewController.swift */; };
@@ -48,7 +50,7 @@
 		12F3842B26AC202400246B3B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12F3842A26AC202400246B3B /* GoogleService-Info.plist */; };
 		12F3843E26AC262E00246B3B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3843D26AC262E00246B3B /* AuthService.swift */; };
 		12F3844226AC4E7200246B3B /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3844126AC4E7200246B3B /* Validators.swift */; };
-		12F3844526AC513F00246B3B /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3844426AC513F00246B3B /* AuthError.swift */; };
+		12F3844526AC513F00246B3B /* AuthErs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3844426AC513F00246B3B /* AuthErs.swift */; };
 		12F3844826AD635100246B3B /* AuthNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3844726AD635100246B3B /* AuthNavigationDelegate.swift */; };
 		12F3844B26AD687500246B3B /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3844A26AD687500246B3B /* FirestoreService.swift */; };
 		12F3846426AD6D2600246B3B /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F3846326AD6D2600246B3B /* UserError.swift */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12ED848A26AEE57C00A30E67 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		12ED848D26AF170F00A30E67 /* ListenerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerService.swift; sourceTree = "<group>"; };
 		12F3838826A99DF700246B3B /* PetProject-IChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PetProject-IChat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12F3838B26A99DF700246B3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12F3838D26A99DF700246B3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +103,7 @@
 		12F3842A26AC202400246B3B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		12F3843D26AC262E00246B3B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		12F3844126AC4E7200246B3B /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
-		12F3844426AC513F00246B3B /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		12F3844426AC513F00246B3B /* AuthErs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErs.swift; sourceTree = "<group>"; };
 		12F3844726AD635100246B3B /* AuthNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavigationDelegate.swift; sourceTree = "<group>"; };
 		12F3844A26AD687500246B3B /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		12F3846326AD6D2600246B3B /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 				12F3840826AB0DFB00246B3B /* Model */,
 				12F3843D26AC262E00246B3B /* AuthService.swift */,
 				12F3844A26AD687500246B3B /* FirestoreService.swift */,
+				12ED848A26AEE57C00A30E67 /* StorageService.swift */,
+				12ED848D26AF170F00A30E67 /* ListenerService.swift */,
 				12F3846226AD6D0900246B3B /* Helpers */,
 			);
 			path = Services;
@@ -265,7 +271,7 @@
 		12F3846226AD6D0900246B3B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				12F3844426AC513F00246B3B /* AuthError.swift */,
+				12F3844426AC513F00246B3B /* AuthErs.swift */,
 				12F3844126AC4E7200246B3B /* Validators.swift */,
 				12F3846326AD6D2600246B3B /* UserError.swift */,
 			);
@@ -402,6 +408,7 @@
 				12F3846426AD6D2600246B3B /* UserError.swift in Sources */,
 				12F3842026AB146600246B3B /* GradientView.swift in Sources */,
 				12F383D826AA877100246B3B /* MainTabBarController.swift in Sources */,
+				12ED848B26AEE57C00A30E67 /* StorageService.swift in Sources */,
 				12F383F326AAE89100246B3B /* SelfConfiguringCell.swift in Sources */,
 				12F3840026AB0CFB00246B3B /* UIColor + Extension.swift in Sources */,
 				12F3840626AB0DC100246B3B /* UserCell.swift in Sources */,
@@ -428,10 +435,11 @@
 				12F383A926A9AF0D00246B3B /* UILabel+Ext.swift in Sources */,
 				12F3840326AB0D9D00246B3B /* PeopleViewController.swift in Sources */,
 				12F3843E26AC262E00246B3B /* AuthService.swift in Sources */,
-				12F3844526AC513F00246B3B /* AuthError.swift in Sources */,
+				12F3844526AC513F00246B3B /* AuthErs.swift in Sources */,
 				12F383FD26AB0CC700246B3B /* ChatRequestViewController.swift in Sources */,
 				12F383B726A9C88500246B3B /* SignUpViewController.swift in Sources */,
 				12F383A626A9A98D00246B3B /* UIFont+Ext.swift in Sources */,
+				12ED848E26AF170F00A30E67 /* ListenerService.swift in Sources */,
 				12F383D226AA871700246B3B /* ListViewController.swift in Sources */,
 				12F383BF26A9CFEC00246B3B /* StackView + Ext.swift in Sources */,
 				12F383E726AAB0B600246B3B /* Bundle-Decodable.swift in Sources */,

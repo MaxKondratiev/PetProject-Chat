@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AuthError {
+enum AuthErs {
     case notFilled
     case invalidEmail
     case passwordsNotMatched
@@ -15,7 +15,7 @@ enum AuthError {
     case serverError
 }
 
-extension AuthError: LocalizedError {
+extension AuthErs: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .notFilled:

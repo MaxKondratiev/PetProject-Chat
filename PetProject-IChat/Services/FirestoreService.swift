@@ -22,7 +22,7 @@ class FirestoreService {
     }
     
     //первый метод
-    func saveProfileWith(id:String, email: String, username:String?, avatarImageString: String?,description: String?, sex: String?,
+    func saveProfileWith(id:String, email: String, username:String?, avatarImageString: UIImage?,description: String?, sex: String?,
                          completion: @escaping (Result<MUser,Error>)-> Void) {
         
         guard Validators().isFilled(username: username, description: description, sex: sex) else {
@@ -30,14 +30,30 @@ class FirestoreService {
             return
         }
         
-        let mUser = MUser(username: username!, email: email, avatarStringURL: avatarImageString!, decription: description!, sex: sex!, id: id)
-        self.usersRef.document(mUser.id).setData(mUser.repsentation) { (err) in
-            if let err = err {
-                completion(.failure(err))
-                } else {
-                    completion(.success(mUser))
-                }
+        guard avatarImageString != #imageLiteral(resourceName: "user") else {
+            completion(.failure(UserError.photoNotExist))
+            return
         }
+         
+        var mUser = MUser(username: username!, email: email, avatarStringURL: "no exist", decription: description!, sex: sex!, id: id)
+        StorageService.shared.upload(photo: avatarImageString!) { (result) in
+            
+            switch result {
+            
+            case .success(let url):
+                mUser.avatarStringURL = url.absoluteString
+                self.usersRef.document(mUser.id).setData(mUser.repsentation) { (err) in
+                    if let err = err {
+                        completion(.failure(err))
+                        } else {
+                            completion(.success(mUser))
+                        }
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+        
         
     }
     

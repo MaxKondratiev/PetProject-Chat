@@ -9,11 +9,22 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
+    private let currentUser: MUser
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let listVC = ListViewController()
-        let usersVC = PeopleViewController()
-        
+        let listVC = ListViewController(currentUser: currentUser)
+        let usersVC = PeopleViewController(currentUser: currentUser)
         viewControllers = [
             generateNavController(rootVC: usersVC, title: "Users", image: UIImage(systemName: "person.2.fill")!),generateNavController(rootVC: listVC, title: "Chat", image: UIImage(systemName: "bubble.left.and.bubble.right")!), ]
     }

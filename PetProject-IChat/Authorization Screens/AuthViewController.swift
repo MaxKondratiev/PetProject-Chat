@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import GoogleSignIn
+import Firebase
+
 
 class AuthViewController: UIViewController {
+    
+    let signInConfig = GIDConfiguration.init(clientID: "341642421421-4s03oehf0ha6a8jut61cfvtsvfk4b0lq.apps.googleusercontent.com")
+    
 
     //кнопки
     let emailBtn = UIButton(title: "Email", titleColor: .white, backgroundColor: .black, font: .avenirFont() )
@@ -26,6 +32,30 @@ class AuthViewController: UIViewController {
     let loginVC = LoginViewController()
     
     
+//    func example() {
+//        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+//        let config = GIDConfiguration(clientID: clientID)
+//        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+//
+//          if let error = error {
+//            print(error.localizedDescription)
+//            return
+//          }
+//
+//          guard
+//            let authentication = user?.authentication,
+//            let idToken = authentication.idToken
+//          else {
+//            return
+//          }
+//
+//          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+//                                                         accessToken: authentication.accessToken)
+//
+//        }
+//
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -37,11 +67,17 @@ class AuthViewController: UIViewController {
         
         emailBtn.addTarget(self, action: #selector(emailBtnTapped), for: .touchUpInside)
         loginBtn.addTarget(self, action: #selector(loginBtnTapped), for: .touchUpInside)
-        
+        googleBtn.addTarget(self,action: #selector(googleBtnTapped), for: .touchUpInside)
+
     }
+    @objc func googleBtnTapped() {
+      
+    }
+    
     
   @objc private func emailBtnTapped() {
         present(signUpVC, animated: true, completion: nil)
+    
     }
     
 @objc private func loginBtnTapped() {
@@ -90,12 +126,7 @@ extension AuthViewController: AuthNavigationDelegate {
     
     
 }
-
-
-
-
-
-// MARK: SwiftUI
+//// MARK: SwiftUI
  import SwiftUI
 struct ViewControllerProvider: PreviewProvider {
     static var previews: some View {
@@ -115,3 +146,8 @@ struct ViewControllerProvider: PreviewProvider {
 }
 
 
+//extension AuthViewController: GIDSignInDelegate {
+//
+//
+//
+//}
